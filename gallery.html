@@ -3,29 +3,42 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Photo Gallery | Abhinay Jha</title>
+
+<title>Photo Gallery - Abhinay Jha Tabla Player</title>
+
+<meta name="description" content="Photo gallery of Tabla Player Abhinay Jha. Live performance photos, stage programs, bhajan, kirtan and music events.">
+
+<link rel="canonical" href="https://abhinayjha05.github.io/gallery.html">
+
+<!-- JSON-LD GALLERY SCHEMA -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ImageGallery",
+  "name": "Photo Gallery - Abhinay Jha Tabla Player",
+  "url": "https://abhinayjha05.github.io/gallery.html",
+  "creator": {
+    "@type": "Person",
+    "name": "Abhinay Jha"
+  },
+  "about": "Tabla Player and Percussion Artist Photo Gallery"
+}
+</script>
 
 <style>
 body{
  margin:0;
- font-family:Arial;
- background:#eef2f7;
+ font-family:Arial, Helvetica, sans-serif;
+ background:#f3f5f9;
 }
 
-/* Top Bar */
 header{
  background:#1e3c72;
  color:white;
  text-align:center;
- padding:20px;
-}
-a.back{
- color:white;
- text-decoration:none;
- font-size:14px;
+ padding:50px 15px;
 }
 
-/* GALLERY */
 .container{
  max-width:1000px;
  margin:auto;
@@ -34,145 +47,65 @@ a.back{
 
 .gallery{
  display:grid;
- grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
- gap:12px;
+ grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+ gap:15px;
 }
-.gallery figure{
- margin:0;
-}
+
 .gallery img{
  width:100%;
- border-radius:12px;
- cursor:pointer;
- box-shadow:0 4px 15px rgba(0,0,0,.2);
-}
-.gallery figcaption{
- text-align:center;
- margin-top:6px;
- font-size:14px;
+ border-radius:14px;
+ box-shadow:0 6px 16px rgba(0,0,0,0.2);
+ object-fit:cover;
 }
 
-/* LIGHTBOX */
-.lightbox{
- position:fixed;
- top:0;
- left:0;
- width:100%;
- height:100%;
- background:rgba(0,0,0,.9);
- display:none;
- justify-content:center;
- align-items:center;
- z-index:10;
-}
-.lightbox img{
- max-width:90%;
- max-height:80%;
- border-radius:12px;
-}
-.btns{
- position:absolute;
- top:20px;
- right:20px;
-}
-button{
- padding:8px 14px;
- margin-left:6px;
-}
-.nav{
- position:absolute;
- top:50%;
- font-size:35px;
+/* back button */
+.btn{
+ display:inline-block;
+ padding:10px 14px;
+ background:#1e3c72;
  color:white;
- cursor:pointer;
- user-select:none;
+ border-radius:10px;
+ text-decoration:none;
+ margin-bottom:15px;
 }
-.prev{left:20px;}
-.next{right:20px;}
-</style>
-</head>
 
+footer{
+ text-align:center;
+ padding:15px;
+ background:#1e3c72;
+ color:white;
+}
+</style>
+
+</head>
 <body>
 
 <header>
- <a class="back" href="index.html">⬅ Back</a>
- <h2>My Photo Gallery</h2>
+ <h1>Photo Gallery - Abhinay Jha</h1>
+ <p>Tabla Player • Percussion Artist</p>
 </header>
 
 <div class="container">
 
+<a class="btn" href="index.html">⬅ Back to Home</a>
+
 <div class="gallery">
 
- <figure>
-  <img src="gallery/IMG_20240419_00103528.jpeg">
-  <figcaption>Photo 2</figcaption>
- </figure>
-
- <figure>
-  <img src="gallery/IMG_20240419_10255951.jpeg">
-  <figcaption>Photo 3</figcaption>
- </figure>
-
- <figure>
-  <img src="gallery/IMG_20240803_192520_873.jpg">
-  <figcaption>Photo 4</figcaption>
- </figure>
-
- <figure>
-  <img src="gallery/photo.jpg">
-  <figcaption>Photo 5</figcaption>
- </figure>
+ <!-- अपनी Photos यहाँ डालें -->
+ <img src="gallery1.jpg" alt="Abhinay Jha Tabla Performance">
+ <img src="gallery2.jpg" alt="Tabla Player Abhinay Jha Live Show">
+ <img src="gallery3.jpg" alt="Abhinay Jha Music Event">
+ <img src="gallery4.jpg" alt="Abhinay Jha Bhajan Tabla Program">
+ <img src="gallery5.jpg" alt="Tabla Percussion Artist Abhinay Jha">
+ <img src="gallery6.jpg" alt="Indian Classical Tabla by Abhinay Jha">
 
 </div>
+
 </div>
 
-<!-- LIGHTBOX -->
-<div class="lightbox" id="lightbox">
- <span class="nav prev" id="prev">&#10094;</span>
- <img id="big">
- <span class="nav next" id="next">&#10095;</span>
-
- <div class="btns">
-  <a id="download" download>
-   <button>Download</button>
-  </a>
-  <button onclick="closeBox()">Close</button>
- </div>
-</div>
-
-<script>
-let images=[...document.querySelectorAll('.gallery img')];
-let index=0;
-const box=document.getElementById('lightbox');
-const big=document.getElementById('big');
-const dl=document.getElementById('download');
-
-images.forEach((img,i)=>{
- img.onclick=()=>{
-  index=i;
-  show();
- }
-});
-
-function show(){
- box.style.display='flex';
- big.src=images[index].src;
- dl.href=images[index].src;
-}
-
-function closeBox(){
- box.style.display='none';
-}
-
-document.getElementById('prev').onclick=()=>{
- index=(index-1+images.length)%images.length;
- show();
-}
-document.getElementById('next').onclick=()=>{
- index=(index+1)%images.length;
- show();
-}
-</script>
+<footer>
+© 2025 Abhinay Jha | Tabla Player
+</footer>
 
 </body>
 </html>
